@@ -1,5 +1,5 @@
 GCC = clang++
-FLAGS = -std=c++98 #-Wall -Wextra -Werror 
+FLAGS = -std=c++98 -g #-Wall -Wextra -Werror 
 
 NAME = PhoneBook
 
@@ -24,7 +24,7 @@ DEP = Makefile $(HEAD)
 ifeq ($(shell uname),Darwin)
     ECHO    = echo
 else
-	ECHO    = echo -e
+	ECHO    = echo
 endif
 
 all: $(NAME)

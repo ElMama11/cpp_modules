@@ -2,20 +2,25 @@
 # define PHONEBOOK_HPP
 
 # include <iostream>
+# include <sstream>
 # include <string>
 # include "Contact.hpp"
-# include <cstdlib>
+
+const int SIZE_BOOK = 8;
 
 class PhoneBook
 {
 	public:
 		PhoneBook(void);
 		~PhoneBook(void);
-		void addContact(const int totalNumberContact);
-		void printContact();
+		void Add(void);
+		void Search(void);
 
 	private:
-		Contact _contact_list[8];
+		void _printContacts(void);
+
+		Contact _contactList[SIZE_BOOK];
+		int _index;
 };
 
 #endif
