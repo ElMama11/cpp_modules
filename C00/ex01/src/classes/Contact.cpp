@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:43:15 by mverger           #+#    #+#             */
-/*   Updated: 2023/02/11 17:29:49 by mverger          ###   ########.fr       */
+/*   Updated: 2023/02/14 17:04:20 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,21 +63,20 @@ void Contact::GetInputUser()
 std::string Contact::_getTruncString(std::string str) {
 	std::string truncated;
 
-	for (int i = 0; i < _columnSize; i++)
+	for (size_t i = 0; i < _columnSize; i++)
 		truncated += " ";
 	std::string sub = str.substr(0, _columnSize);
 	const int startIndex = _columnSize - sub.length();
 	truncated.replace(startIndex, sub.length() > _columnSize ? _columnSize : sub.length(), sub);
-
 	if (str.length() > _columnSize)
 		truncated.replace(_columnSize - 1, 1, ".");
-
 	return truncated;
 }
 
 void Contact::PrintRow(int index) {
 	std::ostringstream ss;
-	ss << index;
+	
+	ss << index + 1;
 	std::cout <<
 		"|" + _getTruncString(ss.str()) +
 		"|" + _getTruncString(_firstName) +
@@ -88,6 +87,11 @@ void Contact::PrintRow(int index) {
 
 void Contact::PrintInfo()
 {
+	if (_firstName.empty())
+	{
+		std::cout << "No contact for this index"<< std::endl;
+		return ;
+	}
 	std::cout << "First name : " << _firstName << std::endl;
 	std::cout << "Last name : " << _lastName << std::endl;
 	std::cout << "Nick name : " << _nickName << std::endl;

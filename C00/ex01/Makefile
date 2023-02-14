@@ -1,5 +1,5 @@
 GCC = clang++
-FLAGS = -std=c++98 -g #-Wall -Wextra -Werror 
+FLAGS = -std=c++98 -g -Wall -Wextra -Werror 
 
 NAME = PhoneBook
 

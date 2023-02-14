@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:43:11 by mverger           #+#    #+#             */
-/*   Updated: 2023/02/11 17:32:31 by mverger          ###   ########.fr       */
+/*   Updated: 2023/02/14 17:04:30 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,13 @@ void PhoneBook::Search()
 	std::istringstream indexStream(indexStr);
 	int index;
 	indexStream >> index;
-	if (index < 0 || index > 7)
+	if (index < 1 || index > 8)
 	{
 		std::cout << "Invalid index" << std::endl;
 		return;
 	}
-	_contactList[index].PrintInfo();
+	_contactList[index - 1].PrintInfo();
+		
 }
 
 void PhoneBook::_printContacts()
