@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 15:16:32 by mverger           #+#    #+#             */
-/*   Updated: 2023/02/22 17:43:08 by mverger          ###   ########.fr       */
+/*   Updated: 2023/02/27 23:36:07 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class HumanA
 		
 	private:
 		std::string	_name;
-		Weapon	*_weapon;
+		Weapon	&_weapon;
 };
 
 #endif
