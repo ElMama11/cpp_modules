@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:21:00 by mverger           #+#    #+#             */
-/*   Updated: 2023/02/27 18:44:13 by mverger          ###   ########.fr       */
+/*   Updated: 2023/02/28 14:51:45 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main( void ) {
 			std::cout << "\nCUSTOM TESTS:\n" << std::endl;
 	
 			Fixed c(4);
-			Fixed const d(2);
+			Fixed d(2);
 		
 			std::cout << "c: " << c << std::endl;
 			std::cout << "d: " << d << std::endl;
@@ -52,17 +52,17 @@ int main( void ) {
 			std::cout << "c / d: " << c / d << std::endl;
 			std::cout << "d / c: " << d / c << std::endl;
 
-			// std::cout << "c < d: " << c <= d << std::endl;
-			// std::cout << "d < c: " << d <= c << std::endl;
+			std::cout << "c < d: " << (c <= d) << std::endl;
+			std::cout << "d < c: " << (d <= c) << std::endl;
 
-			// std::cout << "c > d: " << c >= d << std::endl;
-			// std::cout << "d > c: " << d >= c << std::endl;
+			std::cout << "c > d: " << (c >= d) << std::endl;
+			std::cout << "d > c: " << (d >= c) << std::endl;
 
-			// std::cout << "c <= d: " << c <= d << std::endl;
-			// std::cout << "d <= c: " << d <= c << std::endl;
+			std::cout << "c <= d: " << (c <= d) << std::endl;
+			std::cout << "d <= c: " << (d <= c) << std::endl;
 
-			// std::cout << "c >= d: " << c >= d << std::endl;
-			// std::cout << "d >= c: " << d >= c << std::endl;
+			std::cout << "c >= d: " << (c >= d) << std::endl;
+			std::cout << "d >= c: " << (d >= c) << std::endl;
 		
 			std::cout << "max(c, d): " << Fixed::max(c, d) << std::endl;
 			std::cout << "max(d, c): " << Fixed::max(c, d) << std::endl;

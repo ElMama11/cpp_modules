@@ -17,17 +17,17 @@ class Fixed
 		~Fixed();
 
 		Fixed &operator=(const Fixed &rhs);
-		bool operator>(Fixed fixed) const;
-		bool operator<(Fixed fixed) const;
-		bool operator>=(Fixed fixed) const;
-		bool operator<=(Fixed fixed) const;
-		bool operator==(Fixed fixed) const;
-		bool operator!=(Fixed fixed) const;
+		bool operator>(Fixed &fixed) const;
+		bool operator<(Fixed &fixed) const;
+		bool operator>=(Fixed &fixed) const;
+		bool operator<=(Fixed &fixed) const;
+		bool operator==(Fixed &fixed) const;
+		bool operator!=(Fixed &fixed) const;
 		// Arithmetic Operators
-		float operator+(Fixed fixed) const;
-		float operator-(Fixed fixed) const;
+		float operator+(Fixed &fixed) const;
+		float operator-(Fixed &fixed) const;
 		float operator*(Fixed fixed) const;
-		float operator/(Fixed fixed) const;
+		float operator/(Fixed &fixed) const;
 		// pre-increment Operators
 		Fixed operator++();
 		Fixed operator--();
@@ -42,7 +42,7 @@ class Fixed
 		static Fixed &min(Fixed &first, Fixed &second);
 		static const Fixed &min(Fixed const &first, Fixed const &second);
 		static Fixed &max(Fixed &first, Fixed &second);
-		static const Fixed &max(Fixed const &first, const Fixed &second);
+		static const Fixed &max(Fixed const &first, Fixed const &second);
 		
 	private:
 		int					_fixedPointValue;
