@@ -11,9 +11,9 @@ PATHOBJ = obj/
 
 PATHSRC = src/
 
-HEAD = src/classes/Cat.hpp src/classes/Dog.hpp src/classes/Animal.hpp 
+HEAD = src/classes/Cat.hpp src/classes/Dog.hpp src/classes/Animal.hpp src/classes/WrongAnimal.hpp src/classes/WrongCat.hpp
 
-FILES = main.cpp classes/Dog.cpp classes/Cat.cpp classes/Animal.cpp 
+FILES = main.cpp classes/Dog.cpp classes/Cat.cpp classes/Animal.cpp classes/WrongAnimal.cpp classes/WrongCat.cpp
 
 SRCS = $(addprefix $(PATHSRC)/,$(FILES))
 
