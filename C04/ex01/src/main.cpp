@@ -6,12 +6,13 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:58:45 by mverger           #+#    #+#             */
-/*   Updated: 2023/03/22 14:30:23 by mverger          ###   ########.fr       */
+/*   Updated: 2023/03/22 15:24:51 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "classes/Cat.hpp"
 # include "classes/Animal.hpp"
+# include "classes/Brain.hpp"
 # include "classes/Dog.hpp"
 # include "classes/WrongCat.hpp"
 # include "classes/WrongAnimal.hpp"
