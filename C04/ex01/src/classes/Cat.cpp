@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:22:06 by mverger           #+#    #+#             */
-/*   Updated: 2023/03/22 15:23:26 by mverger          ###   ########.fr       */
+/*   Updated: 2023/03/23 15:51:55 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Cat::~Cat() {
 /* Operator overload*/
 
 Cat &Cat::operator=(const Cat &rhs) {
-	std::cout << "Cat = called." << std::endl;
+	std::cout << "Cat = operator called." << std::endl;
 	if (this != &rhs)
 	{
 		type = rhs.type;
