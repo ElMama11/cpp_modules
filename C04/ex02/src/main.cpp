@@ -6,21 +6,19 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:58:45 by mverger           #+#    #+#             */
-/*   Updated: 2023/03/22 14:05:04 by mverger          ###   ########.fr       */
+/*   Updated: 2023/03/23 16:29:46 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "classes/ScavTrap.hpp"
-# include "classes/FragTrap.hpp"
+# include "classes/Cat.hpp"
+# include "classes/Animal.hpp"
+# include "classes/Brain.hpp"
+# include "classes/Dog.hpp"
+# include "classes/WrongCat.hpp"
+# include "classes/WrongAnimal.hpp"
+# include "classes/AAnimal.hpp"
 
 int main( void ) {
-	
-    FragTrap a("BOT");
-
-    a.attack("nobody");
-    a.takeDamage(30);
-    a.beRepaired(10);
-    a.highFivesGuys();
-
-	return 0;
+	//AAnimal j;
+    return 0;
 }
