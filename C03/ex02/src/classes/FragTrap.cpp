@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 16:39:17 by mverger           #+#    #+#             */
-/*   Updated: 2023/03/03 17:00:50 by mverger          ###   ########.fr       */
+/*   Updated: 2023/04/12 20:03:13 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 	std::cout << "String constructor called for FragTrap " << _name << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &copy) {
+FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(){
 	std::cout << "Copy constructor called for FragTrap " << _name << std::endl;
 	*this = copy;
 }
