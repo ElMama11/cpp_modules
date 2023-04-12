@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 15:21:52 by mverger           #+#    #+#             */
-/*   Updated: 2023/03/03 16:55:10 by mverger          ###   ########.fr       */
+/*   Updated: 2023/04/12 19:59:24 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	std::cout << "String constructor called for ScavTrap " << _name << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &copy) {
+ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap() {
 	*this = copy;
 }
 
