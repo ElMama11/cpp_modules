@@ -5,21 +5,17 @@
 # include <iostream>
 # include "AMateria.hpp"
 
-class AMateria {
+class Cure : public AMateria {
 
 	public:
-		AMateria();
-		AMateria(std::string const &type);
-		AMateria(const AMateria &cpy);
-		virtual ~AMateria();
-		AMateria &operator=(const AMateria &rhs);
+		Cure();
+		Cure(const Cure &cpy);
+		virtual ~Cure();
+		Cure &operator=(const Cure &rhs);
 
-		std::string const &getType() const; //Returns the materia type
-		virtual AMateria *clone() const = 0;
-		virtual void use(ICharacter &target);
+		AMateria *clone() const;
+		void use(ICharacter &target);
 
-	protected:
-		std::string _type;
 };
 
 
