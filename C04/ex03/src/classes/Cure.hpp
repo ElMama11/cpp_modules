@@ -1,9 +1,9 @@
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
 # include <string>
 # include <iostream>
-# include "ICharacter.hpp"
+# include "AMateria.hpp"
 
 class AMateria {
 

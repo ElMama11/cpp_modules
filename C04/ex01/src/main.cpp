@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:58:45 by mverger           #+#    #+#             */
-/*   Updated: 2023/03/23 15:54:31 by mverger          ###   ########.fr       */
+/*   Updated: 2023/04/15 17:48:42 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main( void ) {
     // const Animal* j = new Dog();
     // const Animal* i = new Cat();
 
-    // delete j;//should not create a leak
+    // delete j;
     // delete i;
 
     const Animal *animals[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
