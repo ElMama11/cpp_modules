@@ -1,5 +1,5 @@
 #ifndef CHARACTER_HPP
-# define CHARACTERR_HPP
+# define CHARACTER_HPP
 
 # include <string>
 # include <iostream>

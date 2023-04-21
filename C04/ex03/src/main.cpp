@@ -6,13 +6,15 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:58:45 by mverger           #+#    #+#             */
-/*   Updated: 2023/03/24 17:39:08 by mverger          ###   ########.fr       */
+/*   Updated: 2023/04/21 21:30:57 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "classes/AMateria.hpp"
 # include "classes/Character.hpp"
 # include "classes/MateriaSource.hpp"
+# include "classes/Ice.hpp"
+# include "classes/Cure.hpp"
 
 
 int main( void ) {

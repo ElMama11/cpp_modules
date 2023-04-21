@@ -1,7 +1,7 @@
 GCC = clang++
 FLAGS = -std=c++98 -g -Wall -Wextra -Werror 
 
-NAME = aanimal
+NAME = glaref
 
 GREEN       = \033[32m
 RED         = \033[31m
@@ -11,9 +11,9 @@ PATHOBJ = obj/
 
 PATHSRC = src/
 
-HEAD = src/classes/Cat.hpp src/classes/Dog.hpp src/classes/Animal.hpp src/classes/WrongAnimal.hpp src/classes/WrongCat.hpp src/classes/Brain.hpp src/classes/AAnimal.hpp
+HEAD = src/classes/AMateria.hpp src/classes/Character.hpp src/classes/Cure.hpp src/classes/Ice.hpp src/classes/ICharacter.hpp src/classes/IMateriaSource.hpp src/classes/MateriaSource.hpp 
 
-FILES = main.cpp classes/Dog.cpp classes/Cat.cpp classes/Animal.cpp classes/WrongAnimal.cpp classes/WrongCat.cpp classes/Brain.cpp classes/AAnimal.cpp
+FILES = main.cpp classes/AMateria.cpp classes/Character.cpp classes/Cure.cpp classes/Ice.cpp classes/MateriaSource.cpp
 
 SRCS = $(addprefix $(PATHSRC)/,$(FILES))
 
