@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 17:28:51 by mverger           #+#    #+#             */
-/*   Updated: 2023/04/21 19:16:37 by mverger          ###   ########.fr       */
+/*   Updated: 2023/04/22 17:57:56 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,18 +64,13 @@ void Character::equip(AMateria *m) {
 			std::cout << _name << " equip " << m->getType() << std::endl;
 			return ;
 		}
-		std::cout << _name << " can't equip " << m->getType() << ", inventory is full" << std::endl;
+	std::cout << _name << " can't equip " << m->getType() << ", inventory is full" << std::endl;
 }
 
 void Character::unequip(int idx) {
-	if (_inventory[idx])
-	{
-		delete this->_inventory[idx];
-		this->_inventory[idx] = NULL;
-		std::cout << "Character " << this->_name << " unequipped" << std::endl;
-	}
-	else
-		std::cout << "Materia doesn't exist" << std::endl;
+	if (idx < 0 || idx > 3)
+		return;
+	_inventory[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter &target) {

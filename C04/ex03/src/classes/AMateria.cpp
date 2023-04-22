@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 17:27:01 by mverger           #+#    #+#             */
-/*   Updated: 2023/04/15 18:19:25 by mverger          ###   ########.fr       */
+/*   Updated: 2023/04/22 16:10:58 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ AMateria* AMateria::clone() const
 }
 
 void AMateria::use(ICharacter &target) {
-	
+	std::cout << "AMateria " << this->_type << " used on " << target.getName() << std::endl;
 }

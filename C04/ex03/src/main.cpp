@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:58:45 by mverger           #+#    #+#             */
-/*   Updated: 2023/04/21 21:30:57 by mverger          ###   ########.fr       */
+/*   Updated: 2023/04/22 17:58:24 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,21 @@ int main( void ) {
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 	
-	ICharacter* me = new Character("me");
+	ICharacter* Cloud = new Character("Cloud");
 	
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
-	me->equip(tmp);
+	Cloud->equip(tmp);
 	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	Cloud->equip(tmp);
 	
 	ICharacter* bob = new Character("bob");
 	
-	me->use(0, *bob);
-	me->use(1, *bob);
+	Cloud->use(0, *bob);
+	Cloud->use(1, *bob);
 	
 	delete bob;
-	delete me;
+	delete Cloud;
 	delete src;
 
     return 0;

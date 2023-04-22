@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:54:23 by mverger           #+#    #+#             */
-/*   Updated: 2023/04/17 17:56:39 by mverger          ###   ########.fr       */
+/*   Updated: 2023/04/22 16:19:56 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ Cure &Cure::operator=(const Cure &rhs) {
 	return *this;
 }
 
-void use(ICharacter &target) {
-	std::cout << "* heals " << &target  << "'s wounds *" << std::endl;
+void Cure::use(ICharacter &target) {
+	std::cout << "* heals " << target.getName()  << "'s wounds *" << std::endl;
 }
 
 AMateria* Cure::clone() const
