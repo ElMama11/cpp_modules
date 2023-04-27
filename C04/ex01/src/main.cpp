@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:58:45 by mverger           #+#    #+#             */
-/*   Updated: 2023/04/15 17:48:42 by mverger          ###   ########.fr       */
+/*   Updated: 2023/04/27 17:01:00 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,13 @@ int main( void ) {
     // delete j;
     // delete i;
 
-    const Animal *animals[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
-    for (int i = 0; i < 4; i++)
-        delete animals[i];
+    // const Animal *animals[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
+    // for (int i = 0; i < 4; i++)
+    //     delete animals[i];
+    Dog basic;
+    {
+        Dog tmp = basic;
+    }
 
     return 0;
 }

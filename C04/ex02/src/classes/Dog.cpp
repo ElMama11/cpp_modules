@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:22:01 by mverger           #+#    #+#             */
-/*   Updated: 2023/03/22 15:23:29 by mverger          ###   ########.fr       */
+/*   Updated: 2023/04/27 17:02:23 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Dog::~Dog() {
 /* Operator overload*/
 
 Dog &Dog::operator=(const Dog &rhs) {
-	std::cout << "Cat = called." << std::endl;
+	std::cout << "Dog = called." << std::endl;
 	if (this != &rhs)
 	{
 		type = rhs.type;
