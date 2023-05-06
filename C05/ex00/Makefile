@@ -1,7 +1,7 @@
-GCC = c++
+GCC = clang++
 FLAGS = -std=c++98 -g -Wall -Wextra -Werror 
 
-NAME = fixed2
+NAME = bureaucrat
 
 GREEN       = \033[32m
 RED         = \033[31m
@@ -11,9 +11,9 @@ PATHOBJ = obj/
 
 PATHSRC = src/
 
-HEAD = src/classes/Fixed.hpp 
+HEAD =   src/classes/Bureaucrat.hpp 
 
-FILES = main.cpp classes/Fixed.cpp 
+FILES = main.cpp classes/Bureaucrat.cpp
 
 SRCS = $(addprefix $(PATHSRC)/,$(FILES))
 
