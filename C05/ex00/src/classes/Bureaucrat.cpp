@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 17:27:01 by mverger           #+#    #+#             */
-/*   Updated: 2023/05/06 17:05:02 by mverger          ###   ########.fr       */
+/*   Updated: 2023/05/08 16:07:11 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(
 		throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &cpy) {
-	*this = cpy; // need to test _name(cpy.name) et grade
+Bureaucrat::Bureaucrat(const Bureaucrat &cpy) : _name(cpy._name), _grade(cpy._grade) {
+	*this = cpy;
 }
 
 Bureaucrat::~Bureaucrat() {
@@ -34,7 +34,7 @@ Bureaucrat::~Bureaucrat() {
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
 	if (this != &rhs)
 	{
-		_grade = rhs.getGrade(); //name?
+		_grade = rhs.getGrade();
 	}
 	return *this;
 }
@@ -64,14 +64,4 @@ void Bureaucrat::decrementGrade(void) {
 	if (_grade + 1 > 150)
 		throw Bureaucrat::GradeTooLowException();
 	_grade++;
-}
-
-/* Exception ft */
-
-const char *Bureaucrat::GradeTooHighException::what(void) const throw() {
-	return "grade too high";
-}
-
-const char *Bureaucrat::GradeTooLowException::what(void) const throw() {
-	return "grade too low";
 }
