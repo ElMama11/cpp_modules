@@ -6,11 +6,12 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:39:49 by mverger           #+#    #+#             */
-/*   Updated: 2023/05/15 16:18:50 by mverger          ###   ########.fr       */
+/*   Updated: 2023/05/15 16:55:13 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cstdlib>
 
 class Base { public: virtual ~Base() {} };
 class A : public Base {};
@@ -19,9 +20,9 @@ class C : public Base {};
 
 Base*   generate( void ) {
 	//srand(time(NULL));
-    if ( std::rand() % 3 == 0 )
+    if (rand() % 3 == 0)
         return ( new A );
-    else if ( std::rand() % 3 == 1 )
+    else if (rand() % 3 == 1)
         return ( new B );
     else
         return ( new C );

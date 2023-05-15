@@ -1,5 +1,5 @@
-GCC = clang++
-FLAGS =  -g -Wall -Wextra -Werror 
+GCC = c++
+FLAGS = -std=c++98 -g -Wall -Wextra -Werror 
 
 NAME = conv
 

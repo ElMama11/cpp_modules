@@ -1,5 +1,5 @@
 GCC = clang++
-FLAGS =  -g -Wall -Wextra -Werror 
+FLAGS =  -g -Wall -Wextra -Werror -std=c++98
 
 NAME = identify
 
