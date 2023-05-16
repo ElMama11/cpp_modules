@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 17:27:01 by mverger           #+#    #+#             */
-/*   Updated: 2023/05/15 15:41:16 by mverger          ###   ########.fr       */
+/*   Updated: 2023/05/16 16:12:20 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,33 +32,27 @@ Conv &Conv::operator=(const Conv &rhs) {
 
 /* Public ft */
 
-std::string const &Conv::getValue() const
-{
+std::string const &Conv::getValue() const {
 	return _value;
 }
 
 char Conv::toChar() const
 {
 	int n;
-	int i;
 	
 	try
 	{
-		std::istringstream(_value) >> i;
-    	n = static_cast<int>(i);;
-		if (n < 0 || n > 255)
-		{
+    	n = atoi(_value.c_str());
+		if (n == 0 && _value[0] != '0')
 			throw Conv::ImpossibleException();
-		}
+		else if (n < 0 || n > 255)
+			throw Conv::ImpossibleException();
 	}
-	catch (...)
-	{
+	catch (...) {
 		throw Conv::ImpossibleException();
 	}
 	if (!isprint(n))
-	{
 		throw Conv::NonDisplayableException();
-	}
 	return (static_cast<char>(n));
 }
 
@@ -87,7 +81,8 @@ float Conv::toFloat() const
 
 	try
 	{
-		f = std::stof(_value);
+		f = atof(_value.c_str());
+		f = static_cast<float>(f);
 	}
 	catch (...)
 	{
@@ -102,7 +97,8 @@ double Conv::toDouble() const
 
 	try
 	{
-		d = std::stod(_value);
+		d = strtod(_value.c_str(), NULL);
+		d = static_cast<double>(d);
 	}
 	catch (...)
 	{
