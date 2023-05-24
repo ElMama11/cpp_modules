@@ -1,5 +1,5 @@
-#ifndef WHATEVER_HPP
-# define WHATEVER_HPP
+#ifndef EASYFIND_HPP
+# define EASYFIND_HPP
 
 # include <string>
 # include <iostream>
