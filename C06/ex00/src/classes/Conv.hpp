@@ -1,46 +1,79 @@
 #ifndef CONV_HPP
 # define CONV_HPP
 
-# include <string>
-# include <iostream>
-# include <cmath>
- # include <sstream>
+#include <iostream>
+#include <stdlib.h> //atoi, atof and strtod
+#include <iomanip> //setprecision
+#include <limits.h> //limit for int
+#include <float.h> //limit for float and double
+
+#define CHAR			1
+#define INT				2
+#define FLOAT			3
+#define DOUBLE			4
+#define PSEUDO_LITERAL	5
 
 class Conv
 {
-	private:
-		const std::string _value;
-
 	public:
-		Conv();
-		Conv(std::string const &value);
-		Conv(const Conv &cpy);
-		~Conv();
+		Conv(void);
+		Conv(char * arg);
+		Conv(const Conv& obj);
+		virtual ~Conv(void);
 
-		Conv &operator=(const Conv &rhs);
+		Conv&	operator=(const Conv& obj);
 
-		std::string const &getValue() const;
-		char toChar() const;
-		int toInt() const;
-		float toFloat() const;
-		double toDouble() const;
+		std::string output;
 
-		class ImpossibleException : public std::exception
+	protected:
+		class ImpossibleTypeConversation : public std::exception
 		{
-			const char *what() const throw()
-			{
-				return "Impossible";
-			}
+			public:
+				virtual const char * what() const throw()
+				{
+					return ("[ERROR] The type conversion is impossible, it must be a char, an int, a float or a double");
+				}
 		};
-		class NonDisplayableException : public std::exception
-		{
-			const char *what() const throw()
-			{
-				return "Non displayable";
-			}
-		};
+
+	private:
+		char 		*_arg;
+		int			_type;
+
+		char		_valueChar;
+		int			_valueInt;
+		float		_valueFloat;
+		double		_valueDouble;
+		std::string	_valuePseudoLiteral;
+
+		bool		_charLimit;
+		bool		_intLimit;
+		bool		_floatLimit;
+		bool		_doubleLimit;
+
+		void	_checkType(void);
+		bool	_isChar(char *arg);
+		bool	_isInt(char *arg);
+		bool	_isFloat(char *arg);
+		bool	_isDouble(char *arg);
+		bool	_isPseudoLiteral(char *arg);
+
+		void	_convert(void);
+		void	_charConvert(void);
+		void	_intConvert(void);
+		void	_floatConvert(void);
+		void	_doubleConvert(void);
+		void	_pseudoLiteralConvert(void);
+
+		void	_checkLimit(void);
+
+		void	_printValues(void);
+		void	_printPseudoLiteral(void);
+		void	_printChar(void);
+		void	_printInt(void);
+		void	_printFloat(void);
+		void	_printDouble(void);
 };
 
-std::ostream &operator<<(std::ostream &os, Conv const &Conv);
+std::ostream&	operator<<(std::ostream& o, const Conv& i);
 
 #endif
