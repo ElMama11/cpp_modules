@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:39:49 by mverger           #+#    #+#             */
-/*   Updated: 2023/05/15 16:07:39 by mverger          ###   ########.fr       */
+/*   Updated: 2023/06/02 18:47:13 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int main() {
 
 	std::cout << "Data             : " << data << std::endl;
 	rawData = serialize(data);
-	std::cout << "Raw data         : " << rawData << std::endl;
 	retData = deserialize(rawData);
 	std::cout << "Deserialized data: " << retData << std::endl;
 

@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 17:27:01 by mverger           #+#    #+#             */
-/*   Updated: 2023/06/01 14:17:55 by mverger          ###   ########.fr       */
+/*   Updated: 2023/06/02 18:40:27 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,24 @@
 
 Conv::Conv(void)
 {
-	std::cout
-		<< "Conv default constructor called"
-		<< std::endl;
+	std::cout << "Conv default constructor called" << std::endl;
 	return ;
 }
 
 Conv::Conv(char * arg) : _arg(arg)
 {
-	this->output = arg;
-	this->_checkType();
-	this->_checkLimit();
-	this->_convert();
-	this->_printValues();
+	output = arg;
+	_checkType();
+	_checkLimit();
+	_convert();
+	_printValues();
 	return ;
 }
 
-Conv::Conv(const Conv& obj)
+Conv::Conv(const Conv& cpy)
 {
-	std::cout
-		<< "Conv copy constructor called"
-		<< std::endl;
-	*this = obj;
+	std::cout << "Conv copy constructor called" << std::endl;
+	*this = cpy;
 	return ;
 }
 
@@ -44,12 +40,12 @@ Conv::~Conv(void)
 	return ;
 }
 
-Conv& Conv::operator=(const Conv& obj)
+Conv& Conv::operator=(const Conv& rhs)
 {
-	if (this != &obj)
+	if (this != &rhs)
 	{
-		this->_arg = obj._arg;
-		this->_type = obj._type;
+		_arg = rhs._arg;
+		_type = rhs._type;
 	}
 	return (*this);
 }
@@ -60,22 +56,18 @@ std::ostream&	operator<<(std::ostream& o, const Conv& i)
 	return o;
 }
 
-/*
-** Check Type
-*/
-
 void	Conv::_checkType(void)
 {
-	if (_isChar(this->_arg))
-		this->_type = CHAR;
-	else if (_isInt(this->_arg))
-		this->_type = INT;
-	else if (_isFloat(this->_arg))
-		this->_type = FLOAT;
-	else if (_isDouble(this->_arg))
-		this->_type = DOUBLE;
-	else if (_isPseudoLiteral(this->_arg))
-		this->_type = PSEUDO_LITERAL;
+	if (_isChar(_arg))
+		_type = CHAR;
+	else if (_isInt(_arg))
+		_type = INT;
+	else if (_isFloat(_arg))
+		_type = FLOAT;
+	else if (_isDouble(_arg))
+		_type = DOUBLE;
+	else if (_isPseudoLiteral(_arg))
+		_type = PSEUDO_LITERAL;
 	else
 		throw Conv::ImpossibleTypeConversation();
 }
@@ -158,50 +150,42 @@ bool	Conv::_isPseudoLiteral(char *arg)
 	return (false);
 }
 
-/*
-** Check limits
-*/
-
 void	Conv::_checkLimit(void)
 {
-	this->_charLimit = false;
-	this->_intLimit = false;
-	this->_floatLimit = false;
-	this->_doubleLimit = false;
-	double value = strtod(this->_arg, NULL);
+	_charLimit = false;
+	_intLimit = false;
+	_floatLimit = false;
+	_doubleLimit = false;
+	double value = strtod(_arg, NULL);
 	if (value < 0 || value > 127)
-		this->_charLimit = true;
+		_charLimit = true;
 	if (value < INT_MIN || value > INT_MAX)
-		this->_intLimit = true;
+		_intLimit = true;
 	if (value < -FLT_MAX|| value > FLT_MAX)
-		this->_floatLimit = true;
+		_floatLimit = true;
 	if (value < -DBL_MAX || value > DBL_MAX)
-		this->_doubleLimit = true;
+		_doubleLimit = true;
 } 
-
-/*
-** Convert
-*/
 
 void	Conv::_convert(void)
 {
 	std::cout << std::fixed << std::setprecision(1);
-	switch (this->_type)
+	switch (_type)
 	{
 		case CHAR:
-			this->_charConvert();
+			_charConvert();
 			break;
 		case INT:
-			this->_intConvert();
+			_intConvert();
 			break;
 		case FLOAT:
-			this->_floatConvert();
+			_floatConvert();
 			break;
 		case DOUBLE:
-			this->_doubleConvert();
+			_doubleConvert();
 			break;
 		case PSEUDO_LITERAL:
-			this->_pseudoLiteralConvert();
+			_pseudoLiteralConvert();
 			break;
 		default:
 			throw Conv::ImpossibleTypeConversation();
@@ -210,65 +194,61 @@ void	Conv::_convert(void)
 
 void	Conv::_charConvert(void) 
 {
-	this->_valueChar = this->_arg[0];
-	this->_valueInt = static_cast<int>(this->_valueChar);
-	this->_valueFloat = static_cast<float>(this->_valueChar);
-	this->_valueDouble = static_cast<double>(this->_valueChar);
+	_valueChar = _arg[0];
+	_valueInt = static_cast<int>(_valueChar);
+	_valueFloat = static_cast<float>(_valueChar);
+	_valueDouble = static_cast<double>(_valueChar);
 }
 
 void	Conv::_intConvert(void) 
 {
-	this->_valueInt = atoi(this->_arg);
-	this->_valueChar = static_cast<char>(this->_valueInt);
-	this->_valueFloat = static_cast<float>(this->_valueInt);
-	this->_valueDouble = static_cast<double>(this->_valueInt);
+	_valueInt = atoi(_arg);
+	_valueChar = static_cast<char>(_valueInt);
+	_valueFloat = static_cast<float>(_valueInt);
+	_valueDouble = static_cast<double>(_valueInt);
 }
 
 void	Conv::_floatConvert(void) 
 {
-	this->_valueFloat = atof(this->_arg);
-	this->_valueChar = static_cast<char>(this->_valueFloat);
-	this->_valueInt = static_cast<int>(this->_valueFloat);
-	this->_valueDouble = static_cast<double>(this->_valueFloat);
+	_valueFloat = atof(_arg);
+	_valueChar = static_cast<char>(_valueFloat);
+	_valueInt = static_cast<int>(_valueFloat);
+	_valueDouble = static_cast<double>(_valueFloat);
 }
 
 void	Conv::_doubleConvert(void) 
 {
-	this->_valueDouble = strtod(this->_arg, NULL);
-	this->_valueChar = static_cast<char>(this->_valueDouble);
-	this->_valueInt = static_cast<int>(this->_valueDouble);
-	this->_valueFloat = static_cast<float>(this->_valueDouble);
+	_valueDouble = strtod(_arg, NULL);
+	_valueChar = static_cast<char>(_valueDouble);
+	_valueInt = static_cast<int>(_valueDouble);
+	_valueFloat = static_cast<float>(_valueDouble);
 }
 
 void	Conv::_pseudoLiteralConvert(void) 
 {
-	std::string  pseudoLit = this->_arg;
+	std::string  pseudoLit = _arg;
 	if (pseudoLit == "-inff" || pseudoLit == "+inff" || pseudoLit == "nanf")
 	{
-		pseudoLit = this->_arg;
+		pseudoLit = _arg;
 		int i = 0;
 		while (pseudoLit[i + 1])
 			i++;
 		pseudoLit[i] = '\0';
-		this->_valuePseudoLiteral =  pseudoLit;
+		_valuePseudoLiteral =  pseudoLit;
 	}
 	else
-		this->_valuePseudoLiteral = this->_arg;
+		_valuePseudoLiteral = _arg;
 }
-
-/*
-** Print values
-*/
 
 void Conv::_printValues(void)
 {
-	if (this->_type == PSEUDO_LITERAL)
-		this->_printPseudoLiteral();
+	if (_type == PSEUDO_LITERAL)
+		_printPseudoLiteral();
 	else {
-		this->_printChar();
-		this->_printInt();
-		this->_printFloat();
-		this->_printDouble();
+		_printChar();
+		_printInt();
+		_printFloat();
+		_printDouble();
 	}
 }
 
@@ -277,41 +257,41 @@ void Conv::_printPseudoLiteral(void)
 	std::cout
 		<< "char: impossible" << std::endl
 		<< "int: impossible" << std::endl
-		<< "float: " << this->_valuePseudoLiteral << "f" << std::endl
-		<< "double: " << this->_valuePseudoLiteral << std::endl;
+		<< "float: " << _valuePseudoLiteral << "f" << std::endl
+		<< "double: " << _valuePseudoLiteral << std::endl;
 }
 
 void Conv::_printChar(void)
 {
-	if ((this->_valueInt >= 0 && this->_valueInt < 33) || this->_valueInt == 127)
+	if ((_valueInt >= 0 && _valueInt < 33) || _valueInt == 127)
 		std::cout << "char: Non displayable" << std::endl;
-	else if (this->_charLimit == true)
+	else if (_charLimit == true)
 		std::cout << "char: impossible" << std::endl;
 	else
-		std::cout << "char: '" << this->_valueChar << "'" << std::endl;
+		std::cout << "char: '" << _valueChar << "'" << std::endl;
 }
 
 void Conv::_printInt(void)
 {
-	if (this->_intLimit || this->_floatLimit || this->_doubleLimit)
+	if (_intLimit || _floatLimit || _doubleLimit)
 		std::cout << "int: impossible" << std::endl;
 	else
-		std::cout << "int: " << this->_valueInt << std::endl;;
+		std::cout << "int: " << _valueInt << std::endl;;
 }
 
 void Conv::_printFloat(void) {
-	if ((this->_intLimit && this->_type == INT) ||
-		this->_floatLimit || this->_doubleLimit)
+	if ((_intLimit && _type == INT) ||
+		_floatLimit || _doubleLimit)
 		std::cout << "float: impossible" << std::endl;
 	else
-		std::cout << "float: " << this->_valueFloat << "f" << std::endl;;
+		std::cout << "float: " << _valueFloat << "f" << std::endl;;
 }
 
 void Conv::_printDouble(void) {
-	if ((this->_intLimit && this->_type == INT) ||
-		(this->_floatLimit && this->_type == FLOAT) ||
-		this->_doubleLimit)
+	if ((_intLimit && _type == INT) ||
+		(_floatLimit && _type == FLOAT) ||
+		_doubleLimit)
 		std::cout << "double: impossible" << std::endl;
 	else
-		std::cout << "double: " << this->_valueDouble << std::endl;;
+		std::cout << "double: " << _valueDouble << std::endl;;
 }

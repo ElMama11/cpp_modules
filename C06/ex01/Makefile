@@ -1,4 +1,4 @@
-GCC = clang++
+GCC = c++
 FLAGS =  -g -Wall -Wextra -Werror -std=c++98
 
 NAME = serialize

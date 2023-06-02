@@ -2,10 +2,10 @@
 # define CONV_HPP
 
 #include <iostream>
-#include <stdlib.h> //atoi, atof and strtod
-#include <iomanip> //setprecision
-#include <limits.h> //limit for int
-#include <float.h> //limit for float and double
+#include <stdlib.h>
+#include <iomanip>
+#include <limits.h>
+#include <float.h>
 
 #define CHAR			1
 #define INT				2
@@ -18,10 +18,10 @@ class Conv
 	public:
 		Conv(void);
 		Conv(char * arg);
-		Conv(const Conv& obj);
+		Conv(const Conv& cpy);
 		virtual ~Conv(void);
 
-		Conv&	operator=(const Conv& obj);
+		Conv&	operator=(const Conv& rhs);
 
 		std::string output;
 
@@ -31,7 +31,7 @@ class Conv
 			public:
 				virtual const char * what() const throw()
 				{
-					return ("[ERROR] The type conversion is impossible, it must be a char, an int, a float or a double");
+					return ("error");
 				}
 		};
 
