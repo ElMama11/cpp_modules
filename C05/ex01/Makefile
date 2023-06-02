@@ -1,4 +1,4 @@
-GCC = clang++
+GCC = c++
 FLAGS = -std=c++98 -g -Wall -Wextra -Werror 
 
 NAME = bureaucrat01

@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 17:27:01 by mverger           #+#    #+#             */
-/*   Updated: 2023/05/09 15:57:03 by mverger          ###   ########.fr       */
+/*   Updated: 2023/06/02 16:05:38 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,14 @@ void Bureaucrat::signForm(Form &form) {
 	
 }
 
-void Bureaucrat::executeForm(Form &form) {
+void Bureaucrat::executeForm(Form const &form) {
 	try
 	{
 		form.action(*this);
-		std::cout << *this << " executes " << form << std::endl;
+		std::cout << *this << " executes " << form.getName() << std::endl;
 	}
 	catch (const std::exception &e)
 	{
-		std::cout << *this << " cannot execute " << form << " because " << e.what() << std::endl;
+		std::cout << *this << " cannot execute " <<  form.getName()<< " because " << e.what() << std::endl;
 	}
 }
