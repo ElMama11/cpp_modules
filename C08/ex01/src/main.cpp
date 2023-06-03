@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:39:49 by mverger           #+#    #+#             */
-/*   Updated: 2023/05/24 18:19:52 by mverger          ###   ########.fr       */
+/*   Updated: 2023/06/03 13:47:45 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ int main( void ) {
 		
 		for(ite = l.begin(); ite != l.end(); ite++)
 			 std::cout << *ite << std::endl;
+		
+		std::cout << "shortest : " << span.shortestSpan() << std::endl;
+		std::cout << "longest : " << span.longestSpan() << std::endl;
         
     } catch ( std::exception& e ) {
         std::cout << e.what() << std::endl; 

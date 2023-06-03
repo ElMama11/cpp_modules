@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:39:49 by mverger           #+#    #+#             */
-/*   Updated: 2023/05/25 19:36:56 by mverger          ###   ########.fr       */
+/*   Updated: 2023/06/03 14:07:44 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,7 @@ int main(void)
 
     lst.push_back(3);
     lst.push_back(5);
-    lst.push_back(737);
-    lst.push_back(0);
+    lst.push_back(737);mak
 
     std::list<int>::iterator lst_it = lst.begin();
     std::list<int>::iterator lst_ite = lst.end();
