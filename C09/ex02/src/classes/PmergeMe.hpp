@@ -1,13 +1,15 @@
 #ifndef PMERGEME_HPP
 # define PMERGEME_HPP
 
-# include <string>
 # include <iostream>
-# include <cctype>
 # include <sstream>
 # include <list>
 # include <vector>
 # include <cstdlib>
+# include <limits.h>
+# include <sys/time.h>
+
+# define THRESHOLD 5
 
 class PmergeMe {
 
@@ -19,9 +21,22 @@ class PmergeMe {
 
 		PmergeMe &operator=(const PmergeMe &rhs);
 
+		long sortVector();
+		long sortList();
+		void printVector();
+		void printList();
+
 	private:
-		std::list<unsigned int>		_numbersList;
-		std::vector<unsigned int>	_numbersVector;
+		std::list<int>		_numbersList;
+		std::vector<int>	_numbersVector;
+
+		void vector_merge(int left, int middle, int right);
+		void vector_mergeSort(int left, int right);
+
+		void list_merge(int left, int middle, int right);
+		void list_mergeSort(int left, int right);
+
+		long getTimestamp() const;
 };
 
 #endif
