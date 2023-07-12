@@ -9,8 +9,6 @@
 # include <limits.h>
 # include <sys/time.h>
 
-# define THRESHOLD 5
-
 class PmergeMe {
 
 	public:

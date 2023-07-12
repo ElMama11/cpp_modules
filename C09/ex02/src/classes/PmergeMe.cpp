@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 14:15:34 by mverger           #+#    #+#             */
-/*   Updated: 2023/07/12 16:54:19 by mverger          ###   ########.fr       */
+/*   Updated: 2023/07/12 17:05:37 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void PmergeMe::vector_mergeSort(int left, int right) {
 long PmergeMe::sortVector() {
 	long start = getTimestamp();
 
-	if (_numbersVector.size() <= THRESHOLD)
+	if (_numbersVector.size() <= 5)
 	{
 		// insert sort
 		for (size_t i = 1; i < _numbersVector.size(); i++)
@@ -137,7 +137,6 @@ void PmergeMe::list_merge(int left, int middle, int right) {
 
 	std::list<int> leftList;
 	std::list<int> rightList;
-
 	for (int i = 0; i < sizeLeftList; i++)
 	{
 		std::list<int>::iterator it = _numbersList.begin();
@@ -201,7 +200,7 @@ long PmergeMe::sortList() {
 	std::list<int>::iterator itprev = _numbersList.begin();
 	int j = 0;
 
-	if (_numbersList.size() <= THRESHOLD)
+	if (_numbersList.size() <= 5)
 	{
 		// insert sort
 		for (std::list<int>::iterator it = _numbersList.begin(); it != _numbersList.end(); it++)

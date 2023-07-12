@@ -6,7 +6,7 @@
 /*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:39:49 by mverger           #+#    #+#             */
-/*   Updated: 2023/07/12 16:55:05 by mverger          ###   ########.fr       */
+/*   Updated: 2023/07/12 17:09:44 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int main(int ac, char **av)
 	else
 		if (check_numbers(av))
 			return 1;
+
 	PmergeMe pmergeme(av);
 	 std::cout << "Before: ";
     pmergeme.printList();
@@ -42,14 +43,8 @@ int main(int ac, char **av)
     std::cout << "After:  ";
     pmergeme.printVector();
 
-    std::cout << "Time to process range of " << ac - 1
-              << " elements with std::vector: " << duration << " microseconds"
-              << std::endl;
-
-    duration = pmergeme.sortList();
-
-    std::cout << "Time to process range of " << ac - 1
-              << " elements with std::list: " << duration << " microseconds"
-              << std::endl;
+    std::cout << "Time to process range of " << ac - 1 << " elements with std::vector: " << duration << " microseconds" << std::endl;
+	duration = pmergeme.sortList();
+	std::cout << "Time to process range of " << ac - 1 << " elements with std::list: " << duration << " microseconds" << std::endl;
 	return 0;
 }

@@ -1,5 +1,5 @@
 GCC = c++
-FLAGS = -std=c++98 -g -Wall -Wextra -Werror 
+FLAGS =  -g -Wall -Wextra -Werror -std=c++98
 
 NAME = PmergeMe
 
